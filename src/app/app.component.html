@@ -1,3 +1,4 @@
+
 <div *ngIf="showPresent" class="present-container">
   <div class="present fixed">
     <img src="../assets/images/present.png" alt="подарок">
@@ -7,7 +8,51 @@
       и получите подарок!</p>
   </div>
 </div>
-
+<header class="header">
+  <div class="container">
+    <div class="burger" (click)="open(menu)">
+      <div class="burger-top"></div>
+      <div class="burger-center"></div>
+      <div class="burger-bottom"></div>
+    </div>
+    <div class="logo">
+      <img src="./assets/images/logo.png" alt="MACAROONS">
+    </div>
+    <nav class="menu" #menu>
+      <div (click)="close(menu, null)" class="close">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+             xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+             viewBox="0 0 492 492" style="enable-background:new 0 0 492 492;" xml:space="preserve">
+                <g>
+                    <g>
+                        <path d="M300.188,246L484.14,62.04c5.06-5.064,7.852-11.82,7.86-19.024c0-7.208-2.792-13.972-7.86-19.028L468.02,7.872
+                            c-5.068-5.076-11.824-7.856-19.036-7.856c-7.2,0-13.956,2.78-19.024,7.856L246.008,191.82L62.048,7.872
+                            c-5.06-5.076-11.82-7.856-19.028-7.856c-7.2,0-13.96,2.78-19.02,7.856L7.872,23.988c-10.496,10.496-10.496,27.568,0,38.052
+                            L191.828,246L7.872,429.952c-5.064,5.072-7.852,11.828-7.852,19.032c0,7.204,2.788,13.96,7.852,19.028l16.124,16.116
+                            c5.06,5.072,11.824,7.856,19.02,7.856c7.208,0,13.968-2.784,19.028-7.856l183.96-183.952l183.952,183.952
+                            c5.068,5.072,11.824,7.856,19.024,7.856h0.008c7.204,0,13.96-2.784,19.028-7.856l16.12-16.116
+                            c5.06-5.064,7.852-11.824,7.852-19.028c0-7.204-2.792-13.96-7.852-19.028L300.188,246z"/>
+                    </g>
+                </g>
+        </svg>
+      </div>
+      <ul>
+        <li (click)="close(menu, productsElement)" class="menu-item">
+          <a href="#">Пироженки</a>
+        </li>
+        <li (click)="close(menu, aboutUsElement)" class="menu-item">
+          <a href="#">О нас</a>
+        </li>
+        <li (click)="close(menu, orderElement)" class="menu-item">
+          <a href="#">Оформить заказ</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="phone">
+      <a [href]="phoneHref">{{phone}}</a>
+    </div>
+  </div>
+</header>
 <main>
   <section class="hero">
     <div class="container">
@@ -29,7 +74,7 @@
     </div>
   </section>
 
-  <section class="advantages">
+  <section class="advantages" #aboutUsElement>
     <div class="container">
       <h2 class="advantages-title">Мы печём для вас вкуснейшие макаруны уже более 10 лет</h2>
       <p class="advantages-description">Все пироженки мы готовим только из натуральных и качественных
@@ -45,7 +90,6 @@
         <h3 class="advantage-title">{{advantage.title}}</h3>
         <p class="advantage-description">{{advantage.description}}</p>
       </div>
-
     </div>
   </section>
 
@@ -105,3 +149,22 @@
     </div>
   </section>
 </main>
+<footer class="footer">
+  <div class="container">
+    <div class="logo">
+      <img src="./assets/images/logo.png" alt="MACAROONS">
+    </div>
+    <div class="rights">
+      <p>Все права защищены, 2020</p>
+    </div>
+    <div class="socials">
+      <a [href]="instagram">
+        <img src="./assets/images/instagram.png" alt="">
+        <p>Мы в Instagram</p>
+      </a>
+    </div>
+    <div class="phone">
+      <a [href]="phoneHref">{{phone}}</a>
+    </div>
+  </div>
+</footer>

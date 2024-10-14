@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {AdvantageType} from "./types/advantage.type";
 import {ProductType} from "./types/product.type";
 
@@ -9,8 +9,11 @@ import {ProductType} from "./types/product.type";
 })
 export class AppComponent {
   title = 'macaroons';
-  phone = '375(29)3689868';
   showPresent = true;
+  instagram = 'https://instagram.com/'
+  phoneHref = 'tel:375(29)3689868';
+  phone = '+375 (29) 368-98-68';
+
   advantages: AdvantageType[] = [
     {
       title: 'Лучшие продукты',
@@ -62,12 +65,23 @@ export class AppComponent {
     phone: ''
   };
 
-  public scrollToBlock(item: HTMLElement) {
-    item.scrollIntoView({behavior: "smooth"})
+  public scrollToBlock(target: HTMLElement) {
+    target.scrollIntoView({behavior: "smooth"})
   }
 
   public addToCart(position: ProductType, item: HTMLElement) {
     this.scrollToBlock(item);
-    this.formInfo.position = position.title;
+    this.formInfo.position = position.title.toUpperCase();
+  }
+
+  public open(item: HTMLElement): void {
+    item.classList.add('open');
+  }
+
+  public close(item: HTMLElement, target: HTMLElement | null) {
+    item.classList.remove('open');
+    if (target) {
+      this.scrollToBlock(target);
+    }
   }
 }
